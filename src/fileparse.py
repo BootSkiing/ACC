@@ -1,8 +1,9 @@
 import pandas
 from textblob import TextBlob
+from sklearn import preprocessing
 
 # Reading the training set file
-location = "/Users/ayo/PycharmProjects/ACC/data/training_set_rel3.tsv"
+location = "../data/training_set_rel3.tsv"
 file = pandas.read_csv(location, sep="\t", encoding='latin1')
 #
 important_colum = ['essay', 'domain1_score']
@@ -56,5 +57,18 @@ df['avg_sentiment'] = filter_data['essay'].apply(avgSentiment)
 # def grammerCheck(x):
 
 # Convert our new data to csv
-df.to_csv('/Users/ayo/PycharmProjects/ACC/data/clear_data.csv', sep="\t")
+df.to_csv('../data/clear_data.csv', sep="\t")
 
+# Fixing dataset to be between range -1 to 1
+
+# Read new Data
+new_data = pandas.read_csv('../data/clear_data.csv', sep="\t")
+remove_essay = new_data.drop('essay', axis=1)
+
+scaler = preprocessing.MinMaxScaler()
+scale = scaler.fit_transform(new_data.drop('essay', axis=1))
+normalizer = pandas.DataFrame(scale, columns=['test','score', 'word_count', 'sentence_count', 'avg_word', 'avg_sentiment'])
+remove_test = normalizer.drop('test', axis=1)
+x = remove_test['score']
+y = remove_test.drop('score', axis=1)
+print(y.head(5))
