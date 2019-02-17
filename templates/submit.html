@@ -85,13 +85,14 @@ function closeNav() {
         <h1>Submit Your Own Paper!</h1>
     </div>
 
-    <form action="{{url_for('result')}}" method="post">
+    <form action="/result" method="post">
 
-        <textarea rows="30" cols="100" placeholder="(Paste essay here)"></textarea>
+        <textarea name="essay" id="essayBox" rows="30" cols="100" placeholder="(Paste essay here)"></textarea>
 
         <div><br></div>
 
         <button type="submit" class="btn btn-success btn-lg">Submit</button>
+
     </form>
 
 </div>

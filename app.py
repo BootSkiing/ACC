@@ -3,6 +3,7 @@ Now configured with Flask! Running this will display a web API on a local port
 """
 from flask import Flask, render_template, request, flash, send_from_directory
 from flask_bootstrap import Bootstrap
+import src
 import os
 
 app = Flask(__name__, template_folder="./templates")
@@ -41,7 +42,8 @@ def result():
     if request.method == 'POST':
         form = request.form
         # This line will send form data to a seperate file to be processed. The returned value is the result
-        result = AI.process(form)
+        # result = src.fileparse.doshit(form.essay)
+        result = 0
         return render_template("result.html", result=result)
 
 
