@@ -1,3 +1,11 @@
+"""
+filename: visualizer.py
+purpose: This file is meant to display the results and datasets in
+a pretty visual graph(But I failed)
+author: Ayobami(Emmanuel) Adewale
+"""
+
+
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -22,6 +30,27 @@ def classify_score(x):
 
 # TODO: GRAPH NOT SHOWING CORRECTLY
 #
+
+# Correclation between the columns, I think this would be helpful
+# IDK, I'm realy fucking tired.
+# corr = new_data['word_count'].corr(new_data['domain1_score'])
+corr = new_data.corr()
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(corr,cmap='coolwarm', vmin=-1, vmax=1)
+fig.colorbar(cax)
+ticks = np.arange(0,len(new_data.columns),1)
+ax.set_xticks(ticks)
+plt.xticks(rotation=90)
+ax.set_yticks(ticks)
+ax.set_xticklabels(new_data.columns)
+ax.set_yticklabels(new_data.columns)
+plt.show()
+
+
+# cax = ax.matshow(corr, vmin=-1, vmax=1)
+# ax = fig.add_subplot(111)
+# cax = ax.matshow(corr,cmap='coolwarm', vmin=-1, vmax=1)
 # new_data['score_class'] = new_data['domain1_score'].apply(classify_score)
 #
 # a = new_data['score_class'].value_counts()
