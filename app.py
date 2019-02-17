@@ -30,6 +30,10 @@ def desc_page(filename):
 def submit():
     return render_template("submit.html")
 
+@app.route("/form")
+def form():
+    return render_template("form.html")
+
 
 @app.route("/result", methods=['POST', 'GET'])
 # Needs to be given data from the Neural Net
