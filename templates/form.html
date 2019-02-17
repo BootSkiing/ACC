@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+    </style>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<body>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+</script>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>Form</h1>
+    </div>
+
+    <div class="jumbotron">
+        <h2>Please fill out all fields and click "Submit"</h2>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/">Home</a>
+        <a href="/submit">Submit</a>
+        <a href="/form">Form</a>
+    </div>
+
+    <span onclick="openNav()"></span>
+
+    <form action="{{url_for('result')}}" method="post">
+
+        <h4>Age Group:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">ADULT</option>
+  <option value="1">CHILD</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Sex:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">MALE</option>
+  <option value="1">FEMALE</option>
+  <option value="3">UNKNOWN</option>
+</select>
+
+        <h4>Transgender:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO, NOT TRANSGENDER</option>
+  <option value="1">YES, TRANSGENDER</option>
+  <option value="3">WISH NOT TO SAY</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Sexual Orientation:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">STRAIGHT OR HETEROSEXUAL</option>
+  <option value="2">UNKNOWN</option>
+  <option value="3">PREFER NOT TO SAY</option>
+  <option value="4">BISEXUAL</option>
+  <option value="1">LESBIAN OR GAY</option>
+            <option value="5">OTHER</option>
+        </select>
+
+        <h4>Hispanic Ethnicity:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="1">YES</option>
+  <option value="0">NO, NOT HISPANIC/LATINO</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Race:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="4">OTHER</option>
+  <option value="0">WHITE ONLY</option>
+  <option value="1">BLACK ONLY</option>
+  <option value="3">MULTI-RACIAL</option>
+  <option value="2">UNKNOWN RACE</option>
+        </select>
+
+        <h4>Living Situation:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="3">OTHER LIVING SITUATION</option>
+  <option value="1">INSTITUTIONAL SETTING</option>
+  <option value="0">PRIVATE RESIDENCE</option>UNKNOWN RACE
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Household Composition:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="3">NOT APPLICABLE</option>
+  <option value="1">COHABITATES WITH OTHERS</option>
+  <option value="0">LIVES ALONE</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Veteran Status:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Employment Status:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="4">NOT IN LABOR FORCE:UNEMPLOYED AND NOT LOOKING FOR WORK</option>
+  <option value="0">UNEMPLOYED, LOOKING FOR WORK</option>
+  <option value="1">EMPLOYED</option>
+  <option value="3">NON-PAID/VOLUNTEER</option>
+  <option value="2">UNKNOWN EMPLOYMENT STATUS</option>
+        </select>
+
+        <h4>Number of Hours Worked per Week:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NOT APPLICABLE</option>
+  <option value="4">01-14 HOURS</option>
+  <option value="2">UNKNOWN EMPLOYMENT HOURS</option>
+  <option value="1">35 HOURS OR MORE</option>
+  <option value="3">15-34 HOURS</option>
+        </select>
+
+        <h4>Education Status:</h4>
+                <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="4">MIDDLE SCHOOL TO HIGH SCHOOL</option>
+  <option value="1">COLLEGE OR GRADUATE DEGREE</option>
+  <option value="2">UNKNOWN</option>
+  <option value="5">PRE-K TO FIFTH GRADE</option>
+  <option value="3">SOME COLLEGE</option>
+                    <option value="6">OTHER</option>
+  <option value="0">NO FORMAL EDUCATION</option>
+                </select>
+
+        <h4>Special Education Services:</h4>
+                <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="3">NOT APPLICABLE</option>
+  <option value="1">YES</option>
+                     <option value="0">NO</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Mental Illness:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="1">YES</option>
+            <option value="0">NO</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Intellectual Disability:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Autism Spectrum:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Hearing/Visual Impairment:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Hyperlipidemia:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>High Blood Pressure:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Diabetes:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Obesity:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>AHeart Attack:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Stroke:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Other Cardiac:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Pulmonary Asthma:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Alzheimer or Dementia:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Kidney Disease:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Liver Disease:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Endocrine Condition:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Neurological Condition:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Traumatic Brain Injury:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Joint Disease:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Cancer:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Other Chronic Med Condition:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>No Chronic Med Condition:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Unknown Chronic Med Condition:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+</select>
+
+        <h4>Smokes:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Received Smoking Medication:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Received Smoking Counseling:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>SSI Cash Assistance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>SSDI Cash Assistance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Veterans Disability Benefits:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Veterans Cash Assistance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Public Assistance Cash Program:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Other Cash Benefits:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Medicaid and Medicare Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>No Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Unknown Insurance Coverage:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+</select>
+
+        <h4>Medicaid Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Medicaid Managed Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+            <option value="3">NOT APPLICABLE</option>
+</select>
+
+        <h4>Medicare Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Private Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Child Health Plus Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Other Insurance:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Criminal Justice Status:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+        <h4>Last 3 Digits of your Zip Code:</h4>
+        <input class="form-control" type="text" placeholder="Last 3 digits of zip code">
+
+        <h4>Serious Mental Illness:</h4>
+        <select class="custom-select">
+  <option selected>Open this select menu</option>
+  <option value="0">NO</option>
+  <option value="1">YES</option>
+  <option value="2">UNKNOWN</option>
+</select>
+
+    </form>
+    <div><br></div>
+
+    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+
+    <div><br></div>
+
+
+</div>
+</body>
+</html>
