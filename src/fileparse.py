@@ -1,6 +1,20 @@
+"""
+filename: backend.py
+purpose: This file is meant to use the training set to come up
+with sentiments for the real data.
+author: Ayobami(Emmanuel) Adewale
+"""
+
 import pandas
 from textblob import TextBlob
 from sklearn import preprocessing
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+import numpy as np
+from sklearn import linear_model
+from sklearn import svm
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
 
 # Reading the training set file
 location = "../data/training_set_rel3.tsv"
@@ -20,6 +34,7 @@ df = pandas.DataFrame(filter_data)
 # Sentiment of essay
 # average length of essay
 
+# TODO: PUT IN THE ORIGINAL DATASET
 
 def wordCounting(x):
     return len(TextBlob(x).words)
@@ -67,8 +82,42 @@ remove_essay = new_data.drop('essay', axis=1)
 
 scaler = preprocessing.MinMaxScaler()
 scale = scaler.fit_transform(new_data.drop('essay', axis=1))
-normalizer = pandas.DataFrame(scale, columns=['test','score', 'word_count', 'sentence_count', 'avg_word', 'avg_sentiment'])
+normalizer = pandas.DataFrame(scale,
+                              columns=['test', 'score', 'word_count', 'sentence_count', 'avg_word', 'avg_sentiment'])
 remove_test = normalizer.drop('test', axis=1)
 x = remove_test['score']
 y = remove_test.drop('score', axis=1)
 print(y.head(5))
+
+# The actual machine learningish part I think.
+# I'm too stupid to know the differences.(Emmanuel)
+
+x_train, x_test, y_train, y_test = train_test_split(y, x, test_size=0.25, random_state=42)
+result = []
+classifiers = [
+    svm.SVR(),
+    linear_model.SGDRegressor(),
+    linear_model.BayesianRidge(),
+    linear_model.LassoLars(),
+    DecisionTreeRegressor(random_state=0),
+    RandomForestRegressor(random_state=0, n_estimators=100),
+    linear_model.PassiveAggressiveRegressor(),
+    linear_model.TheilSenRegressor(),
+    linear_model.LinearRegression(),
+    linear_model.Ridge(alpha=1.0),
+    linear_model.ElasticNet(random_state=23)
+]
+
+for item in classifiers:
+    # print(item)
+    clf = item
+    clf.fit(x_train, y_train)
+    #     print(clf.predict(predictionData),'\n')
+    a = [item.__class__.__name__, clf.score(x_test, y_test, sample_weight=None)]
+    # print(item, ':    ', a[1])
+    result.append(a)
+
+# print(result)
+
+model = RandomForestRegressor(random_state=0,n_estimators=100)
+model.fit(x_train, y_train)
