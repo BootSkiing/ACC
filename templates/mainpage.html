@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Mental Illness Detection IA (MIDI)</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title>Bootstrap Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 <body>
-    <h1>The Mental Illness Detection IA (MIDI)</h1>
-        <p>Created by team ACC during Brick Hack :)</p>
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>Team ACC, Brick Hack V</h1>
+    </div>
+
+    <div class="jumbotron">
+        <p>
+            We worked on a project that aims to help corollate various atributes with detection for
+            mental illness. <br>
+            We built our own Machine Learning algorithms, trained them on publicly available data, and
+            used it to create graphs showing correlation. <br>
+            The following images are created are the outcome:
+        </p>
+
+    </div>
+
+    {{image_names}}
+
+    {% for image_name in image_names %}
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <img src="{{url_for('send_image', filename=image_name)}}" class="img-thumbnail">
+    </div>
+    {% endfor %}
+    <div></div>
+
+</div>
+
+
 </body>
 </html>
