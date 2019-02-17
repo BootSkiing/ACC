@@ -83,7 +83,7 @@ function closeNav() {
         <h1>Predicto</h1>
     </div>
 
-    <h1>A Neural Net powered grade predictor!</h1>
+    <h1>A machine learning powered grade predictor!</h1>
 
     <div class="jumbotron">
 
@@ -110,11 +110,11 @@ function closeNav() {
     <h2>Graphs 'n Shit:</h2>
 
     {% for image_name in image_names %}
+    <a href="{{url_for('desc_page', filename=image_name)}}">
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-        <a herf="{{url_for('desc_page', filename=image_name)}}">
             <img src="{{url_for('send_image', filename=image_name)}}" class="img-thumbnail">
-        </a>
     </div>
+    </a>
     {% endfor %}
     <div></div>
 

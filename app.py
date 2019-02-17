@@ -22,7 +22,7 @@ def send_image(filename):
 
 @app.route("/<filename>")
 def desc_page(filename):
-    file = filename[-4:]
+    file = filename[:-4]
     return render_template("desc_page_template.html", file=file, filename=filename)
 
 
